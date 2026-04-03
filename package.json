@@ -1,6 +1,6 @@
 {
   "name": "brand-motion-adapter-skill",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Installable Codex skill for adapting animations/components to any brand identity.",
   "license": "MIT",
   "type": "commonjs",

@@ -9,6 +9,16 @@ npm install -g brand-motion-adapter-skill
 brand-motion-skill install
 ```
 
+Ese comando instala por defecto en:
+- `~/.claude/skills/brand-motion-adapter` (Claude Code)
+- `~/.codex/skills/brand-motion-adapter`
+
+## Instalación rápida para Claude Code (copy/paste)
+
+```bash
+npm install -g brand-motion-adapter-skill && brand-motion-skill install
+```
+
 ## Instalar sin publicar (local)
 
 ```bash
@@ -31,4 +41,4 @@ npm publish --access public
 brand-motion-skill paths
 ```
 
-Por defecto instala en `~/.codex/skills/brand-motion-adapter`.
+Por defecto instala en `~/.claude` y `~/.codex`.

@@ -13,11 +13,15 @@ const SKILL_PACK = [
 const args = process.argv.slice(2);
 const command = args[0] || "install";
 
-function getCodexHome() {
+function getInstallHomes() {
   if (process.env.CODEX_HOME && process.env.CODEX_HOME.trim()) {
-    return process.env.CODEX_HOME;
+    return [process.env.CODEX_HOME.trim()];
   }
-  return path.join(os.homedir(), ".codex");
+  const home = os.homedir();
+  return [
+    path.join(home, ".claude"),
+    path.join(home, ".codex")
+  ];
 }
 
 function copyRecursive(fromDir, toDir) {
@@ -26,12 +30,14 @@ function copyRecursive(fromDir, toDir) {
 }
 
 function installSkill() {
-  const codexHome = getCodexHome();
+  const homes = getInstallHomes();
   const installed = [];
-  for (const item of SKILL_PACK) {
-    const targetDir = path.join(codexHome, "skills", item.name);
-    copyRecursive(item.sourceDir, targetDir);
-    installed.push(targetDir);
+  for (const baseHome of homes) {
+    for (const item of SKILL_PACK) {
+      const targetDir = path.join(baseHome, "skills", item.name);
+      copyRecursive(item.sourceDir, targetDir);
+      installed.push(targetDir);
+    }
   }
   process.stdout.write("Skill instalada:\n");
   for (const target of installed) {
@@ -41,20 +47,24 @@ function installSkill() {
 }
 
 function printPaths() {
-  const codexHome = getCodexHome();
-  for (const item of SKILL_PACK) {
-    const targetDir = path.join(codexHome, "skills", item.name);
-    process.stdout.write(item.name + ":\n");
-    process.stdout.write("  source: " + item.sourceDir + "\n");
-    process.stdout.write("  target: " + targetDir + "\n");
+  const homes = getInstallHomes();
+  for (const baseHome of homes) {
+    process.stdout.write("base: " + baseHome + "\n");
+    for (const item of SKILL_PACK) {
+      const targetDir = path.join(baseHome, "skills", item.name);
+      process.stdout.write(item.name + ":\n");
+      process.stdout.write("  source: " + item.sourceDir + "\n");
+      process.stdout.write("  target: " + targetDir + "\n");
+    }
   }
 }
 
 function printHelp() {
   process.stdout.write("Uso:\n");
-  process.stdout.write("  brand-motion-skill install      Instala la skill en ~/.codex/skills\n");
+  process.stdout.write("  brand-motion-skill install      Instala la skill en ~/.claude y ~/.codex\n");
   process.stdout.write("  brand-motion-skill paths        Muestra rutas source/target\n");
   process.stdout.write("  brand-motion-skill help         Muestra ayuda\n");
+  process.stdout.write("Tip: con CODEX_HOME definido, instala solo en ese destino.\n");
 }
 
 if (command === "install") {
