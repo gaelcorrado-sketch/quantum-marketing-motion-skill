@@ -1,6 +1,12 @@
 # brand-motion-adapter-skill
 
-Pack instalable por npm con la skill `brand-motion-adapter` para Codex.
+Pack instalable por npm con la skill `brand-motion-adapter` para Codex y Claude Code.
+
+Incluye:
+- creación de animaciones nuevas
+- adaptación de animaciones propias o externas (por ejemplo 21st.dev)
+- ajuste completo a identidad visual
+- pulido de motion para que se vea profesional y fluido
 
 ## Instalar desde npm
 

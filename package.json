@@ -1,7 +1,7 @@
 {
   "name": "brand-motion-adapter-skill",
-  "version": "0.3.1",
-  "description": "Installable Codex skill for adapting animations/components to any brand identity.",
+  "version": "0.4.0",
+  "description": "Installable Codex/Claude skill for creating and adapting brand-aligned UI animations with polished motion.",
   "license": "MIT",
   "type": "commonjs",
   "keywords": [
@@ -10,7 +10,8 @@
     "animation",
     "marketing",
     "motion",
-    "ui"
+    "ui",
+    "design"
   ],
   "bin": {
     "brand-motion-skill": "bin/brand-motion-skill.js"
