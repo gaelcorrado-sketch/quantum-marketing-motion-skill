@@ -1,0 +1,4 @@
+node_modules/
+.test-codex/
+.test-codex-v2/
+*.tgz

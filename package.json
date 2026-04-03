@@ -1,0 +1,30 @@
+{
+  "name": "brand-motion-adapter-skill",
+  "version": "0.3.0",
+  "description": "Installable Codex skill for adapting animations/components to any brand identity.",
+  "license": "MIT",
+  "type": "commonjs",
+  "keywords": [
+    "codex-skill",
+    "brand",
+    "animation",
+    "marketing",
+    "motion",
+    "ui"
+  ],
+  "bin": {
+    "brand-motion-skill": "bin/brand-motion-skill.js"
+  },
+  "files": [
+    "bin",
+    "skill-generic",
+    "README.md"
+  ],
+  "scripts": {
+    "pack:check": "npm pack --dry-run",
+    "install:local": "node bin/brand-motion-skill.js install"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
