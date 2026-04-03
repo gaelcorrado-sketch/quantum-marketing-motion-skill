@@ -19,6 +19,21 @@ Ese comando instala por defecto en:
 - `~/.claude/skills/brand-motion-adapter` (Claude Code)
 - `~/.codex/skills/brand-motion-adapter`
 
+Durante `install`, ahora tambien puede preguntarte si queres configurar
+el MCP de 21st.dev (`magic`) para Claude Code.
+
+Si queres forzarlo sin pregunta:
+
+```bash
+brand-motion-skill install --with-21st-mcp
+```
+
+Si queres omitir esa parte:
+
+```bash
+brand-motion-skill install --skip-21st-mcp
+```
+
 ## Instalación rápida para Claude Code (copy/paste)
 
 ```bash
